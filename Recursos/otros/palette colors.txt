@@ -1,0 +1,15 @@
+09f8fd		blue
+
+0f1217		dark
+
+0f1217		purple
+
+4c45eb		mediumBlue
+
+
+6e4ef1		medium purple
+
+
+2a3555		azul marino
+
+0DDDE1

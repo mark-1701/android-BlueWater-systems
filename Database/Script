@@ -1,0 +1,12 @@
+CREATE TABLE Usuarios (
+    id INTEGER PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    numero TEXT NOT NULL,
+    correo_electronico TEXT UNIQUE
+);
+
+INSERT INTO Usuarios (nombre, numero, correo_electronico) VALUES
+('marco', 12345678, 'vini.muralles@gmail.com');
+
+
+SELECT * FROM Usuarios;
