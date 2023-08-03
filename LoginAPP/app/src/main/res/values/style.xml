@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="TextViewStyle">
         <item name="android:textColor">@color/text_view</item>
         <item name="android:textStyle">bold</item>
@@ -14,12 +13,17 @@
         <item name="android:paddingLeft">20dp</item>
         <item name="android:layout_height">300dp</item>
         <item name="android:background">@drawable/custom_text_input_background</item>
-        <!-- Otros atributos de estilo que desees agregar -->
     </style>
 
     <style name="ButtonStyle" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/button_text</item>
         <item name="android:textSize">16sp</item>
         <item name="android:background">@drawable/custom_button</item>
+    </style>
+
+    <style name="ToolBarStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
     </style>
 </resources>

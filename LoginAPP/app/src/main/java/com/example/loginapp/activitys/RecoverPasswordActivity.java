@@ -1,8 +1,10 @@
-package com.example.loginapp;
+package com.example.loginapp.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.loginapp.R;
 
 public class RecoverPasswordActivity extends AppCompatActivity {
 

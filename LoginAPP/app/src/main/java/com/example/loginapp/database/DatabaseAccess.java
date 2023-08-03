@@ -1,10 +1,12 @@
-package com.example.loginapp;
+package com.example.loginapp.database;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Base64;
 import android.widget.Toast;
+
+import com.example.loginapp.model.EncryptDecrypt;
 
 import java.io.File;
 

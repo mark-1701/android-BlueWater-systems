@@ -1,4 +1,4 @@
-package com.example.loginapp;
+package com.example.loginapp.model;
 
 public class User {
     private int id;

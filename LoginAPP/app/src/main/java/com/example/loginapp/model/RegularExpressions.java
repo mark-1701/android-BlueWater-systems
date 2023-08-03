@@ -1,4 +1,4 @@
-package com.example.loginapp;
+package com.example.loginapp.model;
 
 import java.util.regex.Pattern;
 

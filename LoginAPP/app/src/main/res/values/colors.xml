@@ -2,10 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white2">#F2F2F0</color>
     <color name="text_view">#FFFFFFFF</color>
     <color name="background_color">#0F1217</color>
     <color name="button_text">#FF000000</color>
     <color name="input_text_text">#FFFFFFFF</color>
-    <color name="dark_blue">#2a3555</color>
     <color name="button_color">#0DDDE1</color>
+    <color name="main_color">#0F1217</color>
+    <color name="dark_blue">#2a3555</color>
+    <color name="blue">#056CF2</color>
+    <color name="purple">#6a58a2</color>
 </resources>

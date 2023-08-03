@@ -1,20 +1,20 @@
-package com.example.loginapp;
+package com.example.loginapp.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.Random;
+import com.example.loginapp.R;
+import com.example.loginapp.model.RegularExpressions;
+import com.example.loginapp.model.User;
+import com.example.loginapp.database.DatabaseSingUp;
 
-import javax.crypto.SecretKey;
+import java.util.Random;
 
 public class SingUpActivity extends AppCompatActivity {
 

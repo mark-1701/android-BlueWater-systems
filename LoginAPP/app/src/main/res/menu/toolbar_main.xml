@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/layer1"
+        android:title="Capa 1"
+        android:tint = "@color/white"
+        android:orderInCategory="30"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/layer2"
+        android:title="Capa 2"
+        android:tint = "@color/white"
+        android:orderInCategory="40"
+        app:showAsAction="never" />
+</menu>

@@ -1,4 +1,4 @@
-package com.example.loginapp;
+package com.example.loginapp.model;
 
 import android.content.Context;
 import android.security.keystore.KeyGenParameterSpec;
@@ -91,7 +91,7 @@ public class EncryptDecrypt {
         return null;
     }
 
-    byte[] encryptData(String dataToEncrypt, SecretKey secretKey) throws Exception {
+    public byte[] encryptData(String dataToEncrypt, SecretKey secretKey) throws Exception {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
         iv = cipher.getIV();

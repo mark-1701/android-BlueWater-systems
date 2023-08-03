@@ -1,9 +1,12 @@
-package com.example.loginapp;
+package com.example.loginapp.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.loginapp.model.EncryptDecrypt;
+import com.example.loginapp.model.User;
 
 import javax.crypto.SecretKey;
 
