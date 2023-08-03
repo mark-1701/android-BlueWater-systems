@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextEmailSUS"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginStart="24dp"
@@ -27,7 +27,7 @@
         android:background="@drawable/custom_text_input_background_black"
         android:ems="10"
         android:hint="Email"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:paddingLeft="20dp"
         android:text=""
         android:textColorHint="@color/black"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editTextNameSUS"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginStart="24dp"
@@ -51,10 +51,10 @@
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSUS" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/editTextNumberSUS"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginStart="24dp"
@@ -63,16 +63,16 @@
         android:background="@drawable/custom_text_input_background_black"
         android:ems="10"
         android:hint="Número"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:paddingLeft="20dp"
         android:text=""
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNameSUS" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/editTextPasswordSUS"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginStart="24dp"
@@ -81,16 +81,16 @@
         android:background="@drawable/custom_text_input_background_black"
         android:ems="10"
         android:hint="Contraseña"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:text=""
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberSUS" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/editTextRPasswordSUS"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginStart="24dp"
@@ -99,21 +99,22 @@
         android:background="@drawable/custom_text_input_background_black"
         android:ems="10"
         android:hint="La contraseña nuevamente"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:text=""
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordSUS" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSingUpSystem"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/blue"
         android:text="Agregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

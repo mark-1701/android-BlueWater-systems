@@ -1,5 +1,6 @@
 package com.example.loginapp.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -51,5 +52,69 @@ public class DatabaseUsers {
         }
         cursor.close();
         return dataList;
+    }
+
+    public boolean searchEmail(String email) {
+        String[] projection = {DatabaseHelper.COLUMN_EMAIL};
+        String selection = DatabaseHelper.COLUMN_EMAIL + " = ?";
+        String[] selectionArgs = {email};
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, projection, selection, selectionArgs, null, null, null);
+        if (cursor.moveToFirst()) {
+            cursor.close();
+            return true;
+        } else {
+            cursor.close();
+            return false;
+        }
+    }
+    public boolean insertUser(User newUser) throws Exception {
+        encryptDecrypt = new EncryptDecrypt(newUser.getNameKeyAlias(), context, null);
+        //PARA SABER SI LA LLAVE YA EXISTE
+        if (!encryptDecrypt.generateKey()) {
+            return false;
+        }
+        SecretKey secretKey = encryptDecrypt.searchKey();
+        byte[] encryptedData = encryptDecrypt.encryptData(newUser.getPassword(), secretKey);
+        newUser.setIv(encryptDecrypt.getIv());
+
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COLUMN_NAME, newUser.getName());
+        values.put(DatabaseHelper.COLUMN_NUMBER, newUser.getNumber());
+        values.put(DatabaseHelper.COLUMN_EMAIL, newUser.getEmail());
+        values.put(DatabaseHelper.COLUMN_PASSWORD, encryptedData);
+        values.put(DatabaseHelper.COLUMN_NAME_KEY_ALIAS, newUser.getNameKeyAlias());
+        values.put(DatabaseHelper.COLUMN_IV, newUser.getIv());
+        database.insert(DatabaseHelper.TABLE_NAME, null, values);
+        return true;
+    }
+    public boolean updateUser(User user) throws Exception {
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COLUMN_NAME, user.getName());
+        values.put(DatabaseHelper.COLUMN_NUMBER, user.getNumber());
+        values.put(DatabaseHelper.COLUMN_EMAIL, user.getEmail());
+        //SABER SI SE VA A CREAR UNA LLAVE NUEVA
+        if (!user.getNameKeyAlias().equals("0")) {
+            encryptDecrypt = new EncryptDecrypt(user.getNameKeyAlias(), context, null);
+            //PARA SABER SI LA LLAVE YA EXISTE
+            if (!encryptDecrypt.generateKey()) {
+                return false;
+            }
+            SecretKey secretKey = encryptDecrypt.searchKey();
+            byte[] encryptedData = encryptDecrypt.encryptData(user.getPassword(), secretKey);
+            user.setIv(encryptDecrypt.getIv());
+            values.put(DatabaseHelper.COLUMN_PASSWORD,  encryptedData);
+            values.put(DatabaseHelper.COLUMN_NAME_KEY_ALIAS, user.getNameKeyAlias());
+            values.put(DatabaseHelper.COLUMN_IV, user.getIv());
+        }
+        String selection = DatabaseHelper.COLUMN_ID + "=?";
+        String[] selectionArgs={Integer.toString(user.getId())};
+        database.update(databaseHelper.TABLE_NAME, values, selection, selectionArgs);
+        return true;
+    }
+
+    public void deleteUser(int id){
+        String selection = DatabaseHelper.COLUMN_ID + "=?";
+        String[] selectionArgs = {Integer.toString(id)};
+        database.delete(DatabaseHelper.TABLE_NAME, selection, selectionArgs);
     }
 }

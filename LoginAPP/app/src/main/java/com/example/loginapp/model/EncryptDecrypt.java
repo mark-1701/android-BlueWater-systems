@@ -81,7 +81,6 @@ public class EncryptDecrypt {
         try {
             KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
             keyStore.load(null);
-
             SecretKey secretKey = (SecretKey) keyStore.getKey(KEY_ALIAS, null);
             return  secretKey;
 

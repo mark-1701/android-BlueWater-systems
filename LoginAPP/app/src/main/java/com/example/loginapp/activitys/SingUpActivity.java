@@ -10,9 +10,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.loginapp.R;
+import com.example.loginapp.database.DatabaseUsers;
 import com.example.loginapp.model.RegularExpressions;
 import com.example.loginapp.model.User;
-import com.example.loginapp.database.DatabaseSingUp;
 
 import java.util.Random;
 
@@ -22,7 +22,7 @@ public class SingUpActivity extends AppCompatActivity {
     private Button buttonSingUP;
     private RegularExpressions regularExp;
     private String email, name, number, password, rPassword;
-    private DatabaseSingUp databaseSingUp;
+    private DatabaseUsers databaseUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class SingUpActivity extends AppCompatActivity {
         editTextRPassword = findViewById(R.id.editTextRPasswordSU);
         buttonSingUP = findViewById(R.id.buttonSingUp);
         regularExp = new RegularExpressions();
-        databaseSingUp = new DatabaseSingUp(this);
+        databaseUsers = new DatabaseUsers(this);
 
         buttonSingUP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +51,7 @@ public class SingUpActivity extends AppCompatActivity {
                     Toast.makeText(SingUpActivity.this, "Debes de llenar toda la información", Toast.LENGTH_SHORT).show();
                 } else {
                     if (regularExp.validateEmail(email) && regularExp.validateName(name) && regularExp.validatePhone(number) && regularExp.validatePassword(password) && password.equals(rPassword)) {
-                        if (databaseSingUp.searchEmail(email)) {
+                        if (databaseUsers.searchEmail(email)) {
                             Toast.makeText(SingUpActivity.this, "Correo no disponible", Toast.LENGTH_SHORT).show();
                         } else {
                             try {
@@ -60,7 +60,7 @@ public class SingUpActivity extends AppCompatActivity {
                                 String nameKeyAlias = Integer.toString(randomNumber);
                                 User newUser = new User(0, name, number, email, password, nameKeyAlias, null);
                                 /*INSERTAMOS LA INFORMACION*/
-                                if (databaseSingUp.insertUser(newUser)) {
+                                if (databaseUsers.insertUser(newUser)) {
                                     Toast.makeText(SingUpActivity.this, "Felicidades tu cuenta fue creada", Toast.LENGTH_LONG).show();
                                     Thread.sleep(4000);
                                     Intent next = new Intent(SingUpActivity.this, MainActivity.class);

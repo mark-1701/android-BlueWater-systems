@@ -6,11 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.loginapp.R;
 import com.example.loginapp.activitys.InformationViewActivity;
 import com.example.loginapp.database.DatabaseUsers;
@@ -39,11 +37,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHOlder
         User cardItem = cardItemList.get(position);
 
         // Aquí puedes obtener las vistas dentro del CardView y establecer los datos
-        TextView textViewName = holder.cardView.findViewById(R.id.textViewName);
-        TextView textViewEmail = holder.cardView.findViewById(R.id.textViewEmail);
+        TextView textViewName = holder.cardView.findViewById(R.id.textViewNameCV);
+        TextView textViewEmail = holder.cardView.findViewById(R.id.textViewEmailCV);
+        TextView textViewPassword = holder.cardView.findViewById(R.id.textViewPasswordCV);
 
         textViewName.setText(cardItem.getName());
-        textViewEmail.setText(cardItem.getPassword());
+        textViewEmail.setText(cardItem.getEmail());
+        textViewPassword.setText(cardItem.getPassword());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +53,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHOlder
                 DatabaseUsers.globalUser = cardItem;
             }
         });
-
     }
 
     @Override
