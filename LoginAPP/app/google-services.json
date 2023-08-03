@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "450760718581",
+    "project_id": "appbluewater-5d979",
+    "storage_bucket": "appbluewater-5d979.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450760718581:android:b646cd78823784c204adbc",
+        "android_client_info": {
+          "package_name": "com.example.loginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450760718581-goavlvq40qc5pu7rm8ov53884u17eu6l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASuPUUWtDidcWQYFiAessVFr71uAiekyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "450760718581-goavlvq40qc5pu7rm8ov53884u17eu6l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

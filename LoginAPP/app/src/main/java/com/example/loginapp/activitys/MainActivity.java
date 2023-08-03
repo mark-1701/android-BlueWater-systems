@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
@@ -14,8 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.loginapp.R;
+import com.example.loginapp.database.DatabaseHelper;
 import com.example.loginapp.model.RegularExpressions;
 import com.example.loginapp.database.DatabaseAccess;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonLogo;
     private RegularExpressions regularExp;
     private DatabaseAccess databaseAccess;
+    private FirebaseAnalytics myFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         editTextPasssword = findViewById(R.id.editTextPassword);
         regularExp = new RegularExpressions();
         databaseAccess = new DatabaseAccess(this);
+        myFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        //databaseAccess.deleteDatabase();
 
         /*SUBRAYADO DE LOS TEXTVIEW DEL LOGIN*/
         String text1 = "¿Contraseña olvidada?";
@@ -64,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
         textViewPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "button_recover_password");
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Botón Recuperar Contraseña");
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "button");
+                myFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
                 Intent next = new Intent(MainActivity.this, RecoverPasswordActivity.class);
                 startActivity(next);
             }
@@ -73,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
         buttonLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "button_login");
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Botón para Accesar al Sistema");
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "button");
+                myFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
                 String email = editTextEmail.getText().toString();
                 String password = editTextPasssword.getText().toString();
 
